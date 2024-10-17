@@ -24,6 +24,7 @@ components:
       cpuLimit: '2'
       cpuRequest: '1'
       mountSources: true
+      workingDir: "/projects/redhat-openshift-devspaces/django-with-postgresql"
       endpoints:
         - name: django
           targetPort: 8000
