@@ -18,10 +18,10 @@ components:
       volumeMounts:
         - name: venv
           path: /home/user/.venv
-      memoryLimit: 2Gi
-      memoryRequest: 1Gi
-      cpuLimit: '2'
-      cpuRequest: '1'
+      memoryLimit: 4Gi
+      memoryRequest: 2Gi
+      cpuLimit: '4'
+      cpuRequest: '2'
       mountSources: true
       endpoints:
         - name: django
