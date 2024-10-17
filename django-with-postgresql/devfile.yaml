@@ -66,11 +66,11 @@ components:
       size: 2G
 
 commands:
-  - id: change-workingdir
-    exec:
-      component: python
-      commandLine: "cd django-with-postgresql"
-      workingDir: ${PROJECT_SOURCE}
+  # - id: change-workingdir
+  #   exec:
+  #     component: python
+  #     commandLine: "cd django-with-postgresql"
+  #     workingDir: ${PROJECT_SOURCE}
 
   - id: create-venv
     exec:
