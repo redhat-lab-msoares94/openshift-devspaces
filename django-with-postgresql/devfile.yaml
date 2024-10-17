@@ -66,8 +66,7 @@ components:
       size: 2G
 
 commands:
-  - id: change-worker-dir
-    name: Change to django-with-postgresql
+  - id: change-workingdir
     exec:
       commandLine: "cd django-with-postgresql"
       component: python
