@@ -66,11 +66,12 @@ components:
       size: 2G
 
 commands:
-  # - name: Change to django-with-postgresql
-  #   exec:
-  #     commandLine: "cd django-with-postgresql"
-  #     component: python
-  #     workingDir: ${PROJECT_SOURCE}
+  - id: change-worker-dir
+    name: Change to django-with-postgresql
+    exec:
+      commandLine: "cd django-with-postgresql"
+      component: python
+      workingDir: ${PROJECT_SOURCE}
 
   - id: create-venv
     exec:
@@ -118,5 +119,6 @@ commands:
 
 events:
   postStart:
+    - change-worker-dir
     - create-venv
     - install-dependencies
