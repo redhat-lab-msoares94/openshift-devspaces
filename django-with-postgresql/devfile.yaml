@@ -11,7 +11,6 @@ projects:
       checkoutFrom:
         remote: "origin"
         revision: "main"
-      subDir: django-with-postgresql
 components:
   - name: python
     container:
@@ -67,6 +66,12 @@ components:
       size: 2G
 
 commands:
+  - name: Change to django-with-postgresql
+    exec:
+      commandLine: "cd django-with-postgresql"
+      component: python
+      workingDir: ${PROJECT_SOURCE}
+
   - id: create-venv
     exec:
       component: python
