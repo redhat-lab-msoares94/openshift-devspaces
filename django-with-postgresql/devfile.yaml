@@ -7,7 +7,7 @@ projects:
   - name: django-postgresql
     git:
       remotes:
-        origin: "https://github.com/redhat-lab-msoares94/openshift-devspaces.git#?devfilePath=django-with-postgresql/devfile.yaml"
+        origin: "https://github.com/redhat-lab-msoares94/openshift-devspaces.git?devfilePath=django-with-postgresql/devfile.yaml"
       checkoutFrom:
         remote: "origin"
         revision: "main"
