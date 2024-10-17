@@ -68,8 +68,8 @@ components:
 commands:
   - id: change-workingdir
     exec:
-      commandLine: "cd django-with-postgresql"
       component: python
+      commandLine: "cd django-with-postgresql"
       workingDir: ${PROJECT_SOURCE}
 
   - id: create-venv
@@ -118,6 +118,6 @@ commands:
 
 events:
   postStart:
-    - change-worker-dir
+    - change-workingdir
     - create-venv
     - install-dependencies
