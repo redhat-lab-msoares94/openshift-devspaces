@@ -34,7 +34,7 @@ components:
         - name: POSTGRESQL_USER
           value: "redhat"
         - name: POSTGRESQL_PASSWORD
-          value: "Redhat@123"
+          value: "redhat123!"
         - name: POSTGRESQL_HOST
           value: "localhost"
         - name: POSTGRESQL_PORT
@@ -48,7 +48,7 @@ components:
         - name: POSTGRESQL_USER
           value: "redhat"
         - name: POSTGRESQL_PASSWORD
-          value: "Redhat@123"
+          value: "redhat123!"
       endpoints:
         - name: postgres
           targetPort: 5432
@@ -79,17 +79,10 @@ commands:
       commandLine: "sh .venv/bin/activate && pip install -r requirements.txt"
       workingDir: ${PROJECT_SOURCE}
 
-  - id: wait-for-db
+  - id: run-migrations
     exec:
       component: python
-      commandLine: |
-        python wait_db.py && \
-        sh .venv/bin/activate && \
-        python manage.py migrate && \
-        echo "from django.contrib.auth import get_user_model; \
-        User = get_user_model(); \
-        User.objects.filter(username='admin').exists() or \
-        User.objects.create_superuser('admin', 'admin@example.com', '12345678')" | python manage.py shell
+      commandLine: "sh .venv/bin/activate && python manage.py migrate"
       workingDir: ${PROJECT_SOURCE}
 
   - id: create-superuser
@@ -98,14 +91,8 @@ commands:
       commandLine: |
         echo "from django.contrib.auth import get_user_model; \
         User = get_user_model(); \
-        User.objects.filter(username='admin').exists() or \
-        User.objects.create_superuser('admin', 'admin@example.com', '12345678')" | python manage.py shell
-      workingDir: ${PROJECT_SOURCE}
-
-  - id: run-migrations
-    exec:
-      component: python
-      commandLine: "sh .venv/bin/activate && python manage.py migrate"
+        User.objects.filter(username='redhat').exists() or \
+        User.objects.create_superuser('redhat', 'redhat@example.com', 'redhat123!')" | python manage.py shell
       workingDir: ${PROJECT_SOURCE}
 
   - id: setup-environment
