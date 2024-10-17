@@ -1,17 +1,17 @@
 schemaVersion: 2.2.0
 metadata:
-  name: django-postgresql
+  name: django-with-postgresql
   version: 1.0.0
   description: Devfile for Django server with PostgreSQL on OpenShift DevSpaces
 projects:
-  - name: django-postgresql-devspaces
+  - name: django-postgresql
     git:
       remotes:
         origin: "https://github.com/redhat-lab-msoares94/openshift-devspaces.git"
       checkoutFrom:
         remote: "origin"
         revision: "main"
-    clonePath: "django-with-postgresql"
+    clonePath: "django-with-postgresql/django-with-postgresql"
 components:
   - name: python
     container:
