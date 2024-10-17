@@ -11,7 +11,7 @@ projects:
       checkoutFrom:
         remote: "origin"
         revision: "main"
-      clonePath: "django-with-postgresql"
+    clonePath: "django-with-postgresql"
 components:
   - name: python
     container:
