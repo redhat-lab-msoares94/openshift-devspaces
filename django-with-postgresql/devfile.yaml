@@ -7,7 +7,8 @@ projects:
   - name: django-postgresql
     git:
       remotes:
-        origin: "https://github.com/redhat-lab-msoares94/redhat-openshift-devspaces.git?devfilePath=django-with-postgresql/devfile.yaml"
+        #origin: "https://github.com/redhat-lab-msoares94/redhat-openshift-devspaces.git?devfilePath=django-with-postgresql/devfile.yaml"
+        origin: "https://github.com/redhat-lab-msoares94/redhat-openshift-devspaces.git"
       checkoutFrom:
         remote: "origin"
         revision: "main"
@@ -66,11 +67,11 @@ components:
       size: 2G
 
 commands:
-  # - id: change-workingdir
-  #   exec:
-  #     component: python
-  #     commandLine: "cd django-with-postgresql"
-  #     workingDir: ${PROJECT_SOURCE}
+  - id: change-workingdir
+    exec:
+      component: python
+      commandLine: "cd django-with-postgresql"
+      workingDir: ${PROJECT_SOURCE}
 
   - id: create-venv
     exec:
