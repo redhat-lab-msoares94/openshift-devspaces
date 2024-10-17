@@ -11,6 +11,7 @@ projects:
       checkoutFrom:
         remote: "origin"
         revision: "main"
+      subDir: django-with-postgresql
 components:
   - name: python
     container:
@@ -70,19 +71,19 @@ commands:
     exec:
       component: python
       commandLine: "python -m venv .venv"
-      workingDir: ${PROJECT_SOURCE}/django-with-postgresql
+      workingDir: ${PROJECT_SOURCE}
 
   - id: install-dependencies
     exec:
       component: python
       commandLine: "sh .venv/bin/activate && pip install -r requirements.txt"
-      workingDir: ${PROJECT_SOURCE}/django-with-postgresql
+      workingDir: ${PROJECT_SOURCE}
 
   - id: run-migrations
     exec:
       component: python
       commandLine: "sh .venv/bin/activate && python manage.py migrate"
-      workingDir: ${PROJECT_SOURCE}/django-with-postgresql
+      workingDir: ${PROJECT_SOURCE}
 
   - id: create-superuser
     exec:
@@ -92,7 +93,7 @@ commands:
         User = get_user_model(); \
         User.objects.filter(username='redhat').exists() or \
         User.objects.create_superuser('redhat', 'redhat@example.com', 'redhat123!')" | python manage.py shell
-      workingDir: ${PROJECT_SOURCE}/django-with-postgresql
+      workingDir: ${PROJECT_SOURCE}
 
   - id: setup-environment
     composite:
@@ -105,7 +106,7 @@ commands:
     exec:
       component: python
       commandLine: "sh .venv/bin/activate && python manage.py runserver 0.0.0.0:8000"
-      workingDir: ${PROJECT_SOURCE}/django-with-postgresql
+      workingDir: ${PROJECT_SOURCE}
       group:
         kind: run
         isDefault: true  
